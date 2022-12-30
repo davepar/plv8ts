@@ -1,0 +1,26 @@
+{
+  "//": "For local testing use (with quotes around key and value) plv8ts: file:..",
+  "name": "plv8ts-example",
+  "version": "1.0.0",
+  "description": "An example of using the plv8ts package.",
+  "type": "module",
+  "scripts": {
+    "compile": "tsc",
+    "build": "tsc && plv8ts",
+    "test": "jasmine --config=src/spec/support/jasmine.json",
+    "lint": "gts lint",
+    "clean": "gts clean && echo 'Removing sql' && rm -fr ./sql",
+    "fix": "gts fix",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint"
+  },
+  "dependencies": {
+    "plv8ts": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^4.3.1",
+    "gts": "^3.1.1",
+    "jasmine": "^4.5.0",
+    "typescript": "~4.4.0"
+  }
+}

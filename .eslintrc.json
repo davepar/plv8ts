@@ -1,0 +1,6 @@
+{
+  "extends": "./node_modules/gts/",
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": "error"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "root": true,
+  "extends": "./node_modules/gts/",
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": "error",
+    "@typescript-eslint/no-var-requires": "error",
+    "@typescript-eslint/ban-types": "error"
+  }
+}
