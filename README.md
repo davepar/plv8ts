@@ -91,10 +91,11 @@ add a comment in the function that starts with `plv8:`. For example:
 
 ## Lint
 
-The example inclues [Google Typescript Style]
-(https://www.npmjs.com/package/gts), which provides a linter, a prettier
-auto-formatter, and strict code checking by default. This is useful for
-catching errors before using a function in your Postgres database.
+The example inclues
+[Google Typescript Style](https://www.npmjs.com/package/gts),
+which provides a linter, a prettier auto-formatter, and strict code checking by
+default. This is useful for catching errors before using a function in your
+Postgres database.
 
 ## Testing
 
