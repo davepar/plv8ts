@@ -26,9 +26,10 @@ a fresh directory. Then:
 The SQL files will be in the `sql` subdirectory. To add drop statements before
 each `create function` statement, use `npm run build -- -d`
 
-If you create your own package from scratch, you'll need at least the first 3
-settings from the [example Typescript config](example/tsconfig.json), (target,
-moduleResolution, and declaration).
+If you create your own package from scratch, you'll need at least the first 2
+compiler options from the [example Typescript config](example/tsconfig.json)
+(`module` and `moduleResolution`), plus `"declaration": true` (which is in
+tsconfig-google.json).
 
 ## Writing functions
 
@@ -53,29 +54,33 @@ will be defined in the `private` schema.
 
 ## Calling PLV8 functions
 
-Import `plv8` from `plv8ts` and use the functions that it defines. That will
-enable the Typescript compiler to do type checking. Some of those functions
-allow defining a type that will improve the type checking. For example, this
-code calls `execute` with an object type that has a key called `value`:
+To call functions defined by PLV8 add:
+
+    import {plv8} from 'plv8ts';
+
+and use the functions that it defines. That will enable the Typescript compiler
+to do type checking. Some of those functions are generics that allow adding a
+type that will improve the type checking. For example, this code calls
+`execute` with an object type:
 
     const value_rows = plv8.execute<{value: string}>(
       "select value from private.keys where key = 'EMAIL_TEMPLATE_PROMOTE_ATTENDEE'");
     // Use value_rows[0].value
 
-More examples in the[function sample](src/functions/sample_function.ts).
+More examples in the [function sample](example/src/sample_function.ts).
 
 ## Trigger functions
 
-To write a trigger function, return `trigger<MyTableRow>` where MyTableRow defines the
-type of the row for the trigger. You can also add a NEW parameter for insert and update
-triggers, and OLD for update and delete triggers.
+To write a trigger function, return `trigger<MyTableRow>` where MyTableRow
+defines the type of the row for the trigger. You can also add a NEW parameter
+for insert and update triggers, and OLD for update and delete triggers.
 
     export function sample_trigger(
       NEW: MyTableRow,
       OLD: MyTableRow
     ): trigger<MyTableRow> { ... }
 
-See [sample trigger](src/functions/sample_trigger.ts) for more details.
+See [sample trigger](example/src/sample_trigger.ts) for more details.
 
 ## Function options
 
