@@ -17,19 +17,27 @@ executed with `\i` from the psql command line.
 
 ## Quick start
 
-To quickly try it out, copy the contents of the [example directory](example) to
-a fresh directory. Then:
+To try the example, copy the example files into a clean directory:
 
-    npm install
+    curl  https://raw.githubusercontent.com/Davepar/plv8ts/main/example/package.json -O
+    curl  https://raw.githubusercontent.com/Davepar/plv8ts/main/example/tsconfig.json -O
+    mkdir src; cd !$
+    curl https://raw.githubusercontent.com/Davepar/plv8ts/main/example/src/sample_function.ts -O
+
+Then build:
+
     npm run build
 
-The SQL files will be in the `sql` subdirectory. To add drop statements before
-each `create function` statement, use `npm run build -- -d`
+The result will be in a subdirectory called `sql`. To add drop statements before
+each `create function` statement, use `npm run build -- -d` instead.
 
-If you create your own package from scratch, you'll need at least the first 2
-compiler options from the [example Typescript config](example/tsconfig.json)
-(`module` and `moduleResolution`), plus `"declaration": true` (which is in
-tsconfig-google.json).
+To use the `lint` and `fix` commands, copy the other files from the [example
+directory on Github](https://github.com/Davepar/plv8ts/tree/main/example).
+
+*Note:* You may be tempted to put this code into an existing project, but the
+settings inside the example tsconfig.json are necessary to build the code
+correctly. See the [readme](https://github.com/Davepar/plv8ts#tech-details) for
+the project for more details.
 
 ## Writing functions
 
@@ -68,6 +76,9 @@ type that will improve the type checking. For example, this code calls
     // Use value_rows[0].value
 
 More examples in the [function sample](example/src/sample_function.ts).
+
+To see the full list of types and functions provided, take a look at the
+[source code](src/plv8.ts).
 
 ## Trigger functions
 

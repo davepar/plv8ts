@@ -4,3 +4,4 @@ node_modules
 *.sublime-project
 example/build
 example/sql
+example/package-lock.json

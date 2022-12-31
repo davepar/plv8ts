@@ -1,5 +1,8 @@
 {
-  "//": "For local testing use (with quotes around key and value) plv8ts: file:..",
+  "//": {
+    "For local testing": "delete package-lock.json and node_modules, and change dependency to:",
+    "plv8ts": "file:.."
+  },
   "name": "plv8ts-example",
   "version": "1.0.0",
   "description": "An example of using the plv8ts package.",
