@@ -21,11 +21,12 @@ To try the example, copy the example files into a clean directory:
 
     curl  https://raw.githubusercontent.com/Davepar/plv8ts/main/example/package.json -O
     curl  https://raw.githubusercontent.com/Davepar/plv8ts/main/example/tsconfig.json -O
-    mkdir src; cd !$
+    mkdir src; cd src
     curl https://raw.githubusercontent.com/Davepar/plv8ts/main/example/src/sample_function.ts -O
 
-Then build:
+Then install and build:
 
+    npm i
     npm run build
 
 The result will be in a subdirectory called `sql`. To add drop statements before
@@ -34,10 +35,9 @@ each `create function` statement, use `npm run build -- -d` instead.
 To use the `lint` and `fix` commands, copy the other files from the [example
 directory on Github](https://github.com/Davepar/plv8ts/tree/main/example).
 
-*Note:* You may be tempted to put this code into an existing project, but the
-settings inside the example tsconfig.json are necessary to build the code
-correctly. See the [readme](https://github.com/Davepar/plv8ts#tech-details) for
-the project for more details.
+**Note:** You may be tempted to put the example code into an existing project,
+but the settings inside the example tsconfig.json are necessary to build the
+code correctly. See [below](#tech-details) for more details.
 
 ## Writing functions
 
