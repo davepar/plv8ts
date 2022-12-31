@@ -4,7 +4,7 @@
     "plv8ts": "file:.."
   },
   "name": "plv8ts-example",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An example of using the plv8ts package.",
   "type": "module",
   "scripts": {
